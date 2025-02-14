@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-//import java.util.Optional;
+// import java.util.Optional;
 
 @RestController
 @RequestMapping("api/training-centers")
@@ -36,11 +36,11 @@ public class TrainingCenterController {
 
     @GetMapping
     public ResponseEntity<List<TrainingCenter>> getAllTrainingCenters(
-//            @RequestParam(required = false) String city,
-//            @RequestParam(required = false) String state,
-//            @RequestParam(required = false) Integer minCapacity
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String state,
+            @RequestParam(required = false) Integer minCapacity
     ){
-        List<TrainingCenter> centers = service.getAllTrainingCenters();
+        List<TrainingCenter> centers = service.getAllTrainingCenters(city, state, minCapacity);
         return new ResponseEntity< >(centers, HttpStatus.OK);
     }
 
